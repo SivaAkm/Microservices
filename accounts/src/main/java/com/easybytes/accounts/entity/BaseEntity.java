@@ -1,6 +1,5 @@
 package com.easybytes.accounts.entity;
 
-import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
