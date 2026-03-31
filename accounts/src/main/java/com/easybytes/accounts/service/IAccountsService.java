@@ -1,7 +1,12 @@
 package com.easybytes.accounts.service;
 
-import org.springframework.stereotype.Service;
 
-@Service
+import com.easybytes.accounts.dto.CustomerDto;
+
 public interface IAccountsService {
+    /**
+     *
+     * @param customerDto - customer dto object
+     */
+    void createAccount(CustomerDto customerDto);
 }
