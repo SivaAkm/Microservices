@@ -4,6 +4,7 @@ import com.easybytes.accounts.constants.AccountsConstants;
 import com.easybytes.accounts.dto.CustomerDto;
 import com.easybytes.accounts.entity.Accounts;
 import com.easybytes.accounts.entity.Customer;
+import com.easybytes.accounts.exception.CustomerAlreadyExistsException;
 import com.easybytes.accounts.mapper.CustomerMapper;
 import com.easybytes.accounts.repository.AccountsRepository;
 import com.easybytes.accounts.repository.CustomerRepository;
@@ -11,6 +12,7 @@ import com.easybytes.accounts.service.IAccountsService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Random;
 
 @Service
@@ -21,6 +23,10 @@ public class AccountServiceImpl implements IAccountsService {
     @Override
     public void createAccount(CustomerDto customerDto) {
         Customer customer = CustomerMapper.mapToCustomerEntity(customerDto,new Customer());
+        Optional<Customer>optionalCustomer = customerRepository.findByMobileNumber(customerDto.getMobileNumber());
+        if(optionalCustomer.isPresent()){
+            throw new CustomerAlreadyExistsException("Customer Already registered with a given mobile number "+customerDto.getMobileNumber());
+        }
         Customer savedCustomer = customerRepository.save(customer);
         accountsRepository.save(createNewAccount(savedCustomer));
     }
