@@ -10,11 +10,9 @@ import lombok.Setter;
 @Getter@Setter@AllArgsConstructor@NoArgsConstructor
 @Entity
 public class Accounts extends BaseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="customer_id") //customer_id (SQL column) is same as customerId(java obj) JPA handles this
     private Long customerId;
-
+    @Id
     @Column(name="account_number")
     private Long accountNumber;
 
