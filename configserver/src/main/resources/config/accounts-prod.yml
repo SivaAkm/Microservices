@@ -1,0 +1,14 @@
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+build:
+  version: "1.0"
+accounts:
+  message: "Welcome to EazyBank accounts related Production APIs "
+  contact Details:
+    name: "Tom holland - Product Manager"
+    email: "holland@eazybank.com"
+  onCallSupport:
+    -(555) 555-9234
+    - (555) 523-1045

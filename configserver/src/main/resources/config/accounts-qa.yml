@@ -1,0 +1,14 @@
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+build:
+  version: "2.0"
+accounts:
+  message: "Welcome to EazyBank accounts related Quality server APIs "
+  contact Details:
+    name: "Sadie sink - QA"
+    email: "sadie@eazybank.com"
+  onCallSupport:
+    -(555) 555-1204
+    - (555) 523-1945
